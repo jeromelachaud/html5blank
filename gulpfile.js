@@ -53,8 +53,6 @@ var gulp = require( "gulp" ),
 		return env;
 	} ());
 
-// Redifined sass variable to use gulp-sass instead of gulp-ruby-sass 
-var sass = require("gulp-sass");
 
 /** Clean */
 gulp.task( "clean", require( "del" ).bind( null, [ ".tmp", "dist" ] ) );
@@ -76,7 +74,7 @@ gulp.task( "copy", function() {
 /** CSS Preprocessors */
 gulp.task( "sass", function () {
 	return gulp.src( "src/css/sass/style.scss" )
-		.pipe(sass({
+		.pipe( $.sass({
 			style: "expanded",
 			precision: 10
 		}))
